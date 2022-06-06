@@ -1,37 +1,46 @@
 import "./App.css";
 import { useDispatch, useSelector } from "react-redux";
-import { serverInfo } from "./asyncAction";
-import { io } from "socket.io-client";
-import { VscArrowDown, VscArrowUp, VscClose } from 'react-icons/vsc'
+import { startSession } from "./asyncAction";
+import { VscArrowDown, VscArrowUp, VscClose } from "react-icons/vsc";
 
 function App() {
   const dispatch = useDispatch();
-  const infos = useSelector((state) => state.info);
-  const some = 1;
+  const stocks = useSelector((state) => state.info);
+
+  const getStocks = () => {
+    dispatch(startSession())
+  }
 
   return (
     <div className="main">
-      <button className="start-button" onClick={() => dispatch(serverInfo())}>
+      <button className="start-button" onClick={() => getStocks()}>
         start
       </button>
       <div className="info-container">
         <ul className="info">
-          {infos.map((info) => (
+          {stocks.map((stock) => (
             <li>
               <div className="info-cart">
-                <div>{info.ticker}</div>
-                <div>{info.exchange}</div>
-                <div>{info.price}$</div>
-                {info.change > 0 ? (
-                  <div className="green">+{info.change}<VscArrowUp/></div>
+                <div>{stock.ticker}</div>
+                <div>{stock.exchange}</div>
+                <div>{stock.price}$</div>
+                {stock.change > 0 ? (
+                  <div className="green">
+                    +{stock.change}
+                    <VscArrowUp />
+                  </div>
                 ) : (
-                  <div className="red">{info.change}<VscArrowDown/></div>
+                  <div className="red">
+                    {stock.change}
+                    <VscArrowDown />
+                  </div>
                 )}
-                <div>{info.change_percent}%</div>
-                <div>DIVIDEND - {info.dividend}</div>
-                <div>{info.yield}</div>
-                <div>{info.last_trade_time} <VscClose/></div>
-
+                <div>{stock.change_percent}%</div>
+                <div>DIVIDEND - {stock.dividend}</div>
+                <div>{stock.yield}</div>
+                <div>
+                  {stock.last_trade_time} <VscClose />
+                </div>
               </div>
             </li>
           ))}
