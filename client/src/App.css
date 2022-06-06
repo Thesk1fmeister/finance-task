@@ -1,0 +1,84 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+.main {
+  width: 90%;
+  margin: 15px auto;
+  height: 100vh;
+}
+
+.main button {
+  padding: 15px;
+  border-radius: 20px;
+  border: 2px solid green;
+  color: green;
+  background-color: transparent;
+  font-size: 13px;
+  text-transform: uppercase;
+  transition: all 500ms ease;
+}
+.main button:hover {
+   transform: scale(1.1);
+   color: #fff;
+   background-color: green;
+}
+
+.info {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.info li {
+  display: list-item;
+  list-style-type: none;
+}
+
+.red {
+  background-color: red;
+  color: #fff;
+  border-radius: 10px;
+}
+
+.green {
+  background-color: rgb(37, 165, 37);
+  color: #fff;
+  border-radius: 10px;
+}
+
+.info-cart {
+  margin-top: 5px;
+  display: flex;
+}
+
+.info-cart div {
+  width: 75px;
+  padding: 5px;
+}
+
+.info-cart div:last-child {
+  width: 230px;
+  background: #29353b;
+  color: #fff;
+  border-radius: 10px;
+}
+
+.info-cart div:nth-child(1) {
+  background: #29353b;
+  color: #fff;
+  border-radius: 10px;
+}
+
+.info-cart div:nth-child(6) {
+  width: 140px;
+}
+
+.info-cart div:nth-child(3) {
+  color: rgb(0, 102, 0);
+}
