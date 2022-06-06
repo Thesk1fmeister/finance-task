@@ -1,9 +1,10 @@
 import { addInfoFromServer } from "../store/customReducer";
 import { io } from "socket.io-client";
 
-const socket = io.connect("http://localhost:4000");
+const serverHost = "http://localhost:4000";
+const socket = io.connect(serverHost);
 
-export const serverInfo = () => {
+export const startSession = () => {
   return (dispatch) => {
     socket.emit("start");
     socket.on("ticker", (msg) => {
@@ -11,6 +12,3 @@ export const serverInfo = () => {
     });
   };
 };
-// socket.emit("start");
-// socket.on("ticker", function (msg) {
-//   console.log(msg);
