@@ -3,7 +3,8 @@
 
 ## Requirements
 
-We need you to implement a solution to display price tickers data on the UI in realtime.
+We
+need you to implement a solution to display price tickers data on the UI in realtime.
 
 Price data is available from a locally running service (see information below). Any additional visualisations to indicate how prices have changed would be a plus. Testing is also an important part to this exercise.
 
